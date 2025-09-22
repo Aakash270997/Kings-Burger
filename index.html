@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kings Burger - Delicious Food Delivery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./fonts/FredokaOne-Regular.ttf">
+</head>
+
+<body class="bg-gray-50">
+  <!-- Replace your current <nav> with this fully responsive header -->
+  <nav class="bg-white shadow-lg fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo -->
+        <a href="#" class="flex items-center space-x-2">
+          <img src="./img/TesteNest.svg" alt="TasteNest Logo" class="h-10 w-auto">
+        </a>
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex space-x-8">
+          <div class="relative group">
+            <button class="flex items-center font-bold text-gray-800 hover:text-yellow-500 transition-all">
+              Home
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full mt-0 w-40 bg-white rounded-xl shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-20">
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100 text-gray-700 rounded-xl">Home 1</a>
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100 text-gray-700 rounded-xl">Home 2</a>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center font-bold text-gray-800 hover:text-yellow-500 transition-all">
+              About Us
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center font-bold text-gray-800 hover:text-yellow-500 transition-all">
+              Shop
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full mt-0 w-40 bg-white rounded-xl shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-20">
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100 text-gray-700 rounded-xl">Shop 1</a>
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100 text-gray-700 rounded-xl">Shop 2</a>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center font-bold text-gray-800 hover:text-yellow-500 transition-all">
+              Blog
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full mt-0 w-40 bg-white rounded-xl shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-20">
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100 text-gray-700 rounded-xl">Blog 1</a>
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100 text-gray-700 rounded-xl">Blog 2</a>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center font-bold text-gray-800 hover:text-yellow-500 transition-all">
+              Pages
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full mt-0 w-40 bg-white rounded-xl shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-20">
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100 text-gray-700 rounded-xl">FAQ</a>
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100 text-gray-700 rounded-xl">404</a>
+            </div>
+          </div>
+          <a href="#" class="font-bold text-gray-800 hover:text-yellow-500 transition-all">Contact</a>
+        </div>
+        <div class="hidden lg:flex items-center space-x-8">
+          <div class="flex items-center space-x-2 ml-4">
+            <span class="relative">
+              <img src="./img/cart_icon.svg" alt="Cart" class="w-6 h-6">
+              <span class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full px-1">0</span>
+            </span>
+          </div>
+          <a href="#" class="bg-yellow-400 text-white font-bold px-8 py-3 rounded-xl shadow hover:bg-yellow-500 transition-all">Contact Us</a>
+        </div>
+        <div class="lg:hidden flex items-center space-x-2">
+          <button id="mobileMenuBtn" class="text-gray-800 focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-40 z-50 hidden transition-all duration-300">
+        <div class="absolute top-0 right-0 w-80 max-w-full bg-white h-full shadow-lg p-8 flex flex-col space-y-6">
+          <button id="closeMobileMenu" class="self-end text-gray-700 mb-6 focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+          <a href="#" class="font-bold text-gray-800 py-2 border-b">Home</a>
+          <div class="relative">
+            <button class="w-full flex justify-between items-center font-bold text-gray-800 py-2 border-b mobile-dropdown-btn">
+              Shop
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="mobile-dropdown hidden flex-col pl-4">
+              <a href="#" class="py-2 text-gray-700">Shop Grid</a>
+              <a href="#" class="py-2 text-gray-700">Shop Single</a>
+            </div>
+          </div>
+          <div class="relative">
+            <button class="w-full flex justify-between items-center font-bold text-gray-800 py-2 border-b mobile-dropdown-btn">
+              Blog
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="mobile-dropdown hidden flex-col pl-4">
+              <a href="#" class="py-2 text-gray-700">Blog List</a>
+              <a href="#" class="py-2 text-gray-700">Blog Single</a>
+            </div>
+          </div>
+          <div class="relative">
+            <button class="w-full flex justify-between items-center font-bold text-gray-800 py-2 border-b mobile-dropdown-btn">
+              Pages
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="mobile-dropdown hidden flex-col pl-4">
+              <a href="#" class="py-2 text-gray-700">FAQ</a>
+              <a href="#" class="py-2 text-gray-700">404</a>
+            </div>
+          </div>
+          <a href="#" class="font-bold text-gray-800 py-2 border-b">About Us</a>
+          <a href="#" class="font-bold text-gray-800 py-2 border-b">Contact</a>
+          <a href="#" class="bg-yellow-400 text-white font-bold px-8 py-3 rounded-xl shadow hover:bg-yellow-500 transition-all mt-4 text-center">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Slider -->
+  <section class="hero-bg pt-20 pb-6 lg:pb-16 overflow-hidden relative">
+    <div class="swiper hero-swiper">
+      <div class="swiper-wrapper">
+        <!-- Slides 1 -->
+        <div class="swiper-slide">
+          <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="flex flex-col lg:flex-row items-center justify-between lg:min-h-[600px]">
+              <div class="lg:w-1/2 text-white mb-12 lg:mb-0">
+                <div class="inline-block mb-6 font-semibold text-[24px] leading-[35px] align-middle text-[#F3274C]">Fastest Delivery & Easy Pickup</div>
+                <h1 class="text-5xl mb-6 text-[#FFD40D] font-semibold lg:text-[80px] leading-[96px] align-middle">Kings Burger</h1>
+                <p class="mb-8 font-['Archivo',_sans-serif] font-normal text-[20px] leading-[25px] align-middle text-white">Experience the royal taste of our signature burgers, crafted with premium ingredients and served with love.</p>
+                <div class="flex space-x-4">
+                  <button class="btn-primary text-white rounded-full font-medium text-lg first-button">View Our Menu</button>
+                  <div class="transition-all animate-float flex items-center gap-2 mt-[10px]">
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <span class="text-white text-sm font-bold px-3 py-1 rounded-full">4.4</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hidden lg:block lg:w-1/2 relative">
+                <div class="animate-float">
+                  <img src="./img/bannar-img.png" alt="Delicious Burger" class="w-full mx-auto">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slides 2  -->
+        <div class="swiper-slide">
+          <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="flex flex-col lg:flex-row items-center justify-between lg:min-h-[600px]">
+              <div class="lg:w-1/2 text-white mb-12 lg:mb-0">
+                <div class="inline-block mb-6 font-semibold text-[24px] leading-[35px] align-middle text-[#F3274C]">NEW RECIPE</div>
+                <h1 class="text-5xl mb-6 text-[#FFD40D] font-semibold lg:text-[80px] leading-[96px] align-middle">BBQ Special</h1>
+                <p class="mb-8 font-['Archivo',_sans-serif] font-normal text-[20px] leading-[25px] align-middle text-white">Smoky BBQ flavor meets juicy beef patty. A perfect combination that will satisfy your cravings.</p>
+                <div class="flex space-x-4">
+                  <button class="btn-primary text-white rounded-full font-medium text-lg first-button">View Our Menu</button>
+                  <div class="transition-all animate-float flex items-center gap-2 mt-[10px]">
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <span class="text-white text-sm font-bold px-3 py-1 rounded-full">4.4</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hidden lg:block lg:w-1/2 relative">
+                <div class="animate-float">
+                  <img src="./img/bannar-img.png" alt="BBQ Burger" class="w-full">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slides 3  -->
+        <div class="swiper-slide">
+          <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="flex flex-col lg:flex-row items-center justify-between lg:min-h-[600px]">
+              <div class="lg:w-1/2 text-white mb-12 lg:mb-0">
+                <div class="inline-block mb-6 font-semibold text-[24px] leading-[35px] align-middle text-[#F3274C]">Fastest Delivery & Easy Pickup</div>
+                <h1 class="text-5xl mb-6 text-[#FFD40D] font-semibold lg:text-[80px] leading-[96px] align-middle">Pizza Paradise</h1>
+                <p class="mb-8 font-['Archivo',_sans-serif] font-normal text-[20px] leading-[25px] align-middle text-white">Authentic wood-fired pizzas with fresh ingredients. From classic Margherita to gourmet creations.</p>
+                <div class="flex space-x-4">
+                  <button class="btn-primary text-white rounded-full font-medium text-lg first-button">View Our Menu</button>
+                  <div class="transition-all animate-float flex items-center gap-2 mt-[10px]">
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <span class="text-white text-sm font-bold px-3 py-1 rounded-full">4.4</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hidden lg:block lg:w-1/2 relative">
+                <div class="animate-float">
+                  <img src="./img/bannar-img.png" alt="Delicious Pizza" class="w-full">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next !text-white !right-[10%] lg:!right-[20%] !bottom-0 !w-12 !top-[unset] !h-12 !mt-0 !top-1/2 !transform !-translate-y-1/2 !rounded-full backdrop-blur-sm transition-all">
+        <i class="fa-solid fa-arrow-right md:font-black text-[28px] lg:text-[34.86px] md:leading-10 md:text-center md:align-middle"></i>
+      </div>
+      <div class="swiper-button-prev !text-white !left-[10%] lg:!left-[20%] !w-12 !h-12 !mt-0 !top-[unset] !bottom-0 !transform !-translate-y-1/2 !rounded-full backdrop-blur-sm transition-all">
+        <i class="fa-solid fa-arrow-left md:font-black text-[28px] lg:text-[34.86px] md:leading-10 md:text-center md:align-middle"></i>
+      </div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination !bottom-4 lg:!bottom-8 !text-center"></div>
+    </div>
+  </section>
+
+  <!-- Perfect Place Section -->
+  <section class="py-20 bg-white section-reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">Perfect Place For An Exceptional <br class="hidden lg:block">Experience</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-2 gap-6">
+          <img src="./img/experience-1.jpeg" class="rounded-2xl shadow-lg rounded-[20px] lg:rounded-[50%] mx-auto lg:m-0" alt="Restaurant Interior">
+          <img src="./img/experience-2.jpeg" class="rounded-2xl shadow-lg rounded-[20px] lg:rounded-[50%] mx-auto lg:m-0" alt="Dining Experience">
+        </div>
+
+        <div>
+          <div class="space-y-8">
+            <div class="flex items-start space-x-4">                
+                <p class="font-epilogue font-normal text-base leading-[26.67px] tracking-[0%] align-middle">Nisl quam nestibulum ac quam nec odio elementu sceisue the aucan ligula. Orci varius natoque pena culus mus nellentesque ha um ac quam nec odio aibulum ac quam nec odio elrbine.</p>
+            </div>
+            <div class="flex items-start space-x-4 items-center">
+              <div class="service-icon rounded-full flex items-center justify-center">
+                <span class="text-xl"><img src="./img/OnlineFoodOrdering.svg" width="33" height="51"></span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Online Food Ordering</h3>
+                <p class="text-gray-600">Quick and easy online ordering system with real-time tracking</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 items-center">
+              <div class="service-icon rounded-full flex items-center justify-center">
+                <span class="text-xl"><img src="./img/SuperQuickMeal.svg" width="51" height="51"></span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Super Quick Meal</h3>
+                <p class="text-gray-600">Fast preparation and delivery without compromising quality</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-slide py-12 lg:py-20 bg-gray-50 section-reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-[60px] leading-[34px] md:leading-[48px] lg:leading-[72px] font-['Fredoka',_sans-serif] font-bold not-italic tracking-normal text-center align-middle">Choose a Category</h2>
+      </div>
+
+      <div class="swiper mySwiper pb-12">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide flex flex-col items-center">
+          <div class="category-img-wrap relative w-[260px] h-[170px] md:w-[320px] md:h-[200px] mb-4">
+            <img src="./img/CatOrganicFood.png" alt="Organic Food">
+          </div>
+          <h3 class="category-title font-['Fredoka',_sans-serif] font-semibold not-italic text-[24px] leading-[28.8px] text-center align-middle mb-1">Organic Food</h3>
+          <span class="text-[#F3274C] font-bold text-base mb-2">12 Dishes in the Menu</span>
+        </div>
+
+        <div class="swiper-slide flex flex-col items-center">
+          <div class="category-img-wrap relative w-[260px] h-[170px] md:w-[320px] md:h-[200px] mb-4">
+            <img src="./img/CatZingerBurgers.png" alt="Zinger Burgers">
+          </div>
+          <h3 class="category-title font-['Fredoka',_sans-serif] font-semibold not-italic text-[24px] leading-[28.8px] text-center align-middle mb-1">Zinger Burgers</h3>
+          <span class="text-[#F3274C] font-bold text-base mb-2">04 Dishes in the Menu</span>
+        </div>
+
+        <div class="swiper-slide flex flex-col items-center">
+          <div class="category-img-wrap relative w-[260px] h-[170px] md:w-[320px] md:h-[200px] mb-4">
+            <img src="./img/CatGrillFood.png" alt="Grill Food">
+          </div>
+          <h3 class="category-title font-['Fredoka',_sans-serif] font-semibold not-italic text-[24px] leading-[28.8px] text-center align-middle mb-1">Grill Food</h3>
+          <span class="text-[#F3274C] font-bold text-base mb-2">12 Dishes in the Menu</span>
+        </div>
+
+        <div class="swiper-slide flex flex-col items-center">
+          <div class="category-img-wrap relative w-[260px] h-[170px] md:w-[320px] md:h-[200px] mb-4">
+            <img src="./img/CatBarBQ.png" alt="Bar B Q">
+          </div>
+          <h3 class="category-title font-['Fredoka',_sans-serif] font-semibold not-italic text-[24px] leading-[28.8px] text-center align-middle mb-1">Bar B Q</h3>
+          <span class="text-[#F3274C] font-bold text-base mb-2">12 Dishes in the Menu</span>
+        </div>
+
+        <div class="swiper-slide flex flex-col items-center">
+          <div class="category-img-wrap relative w-[260px] h-[170px] md:w-[320px] md:h-[200px] mb-4">
+            <img src="./img/cat-5.jpeg" alt="Afternoon Tea">
+          </div>
+          <h3 class="category-title font-['Fredoka',_sans-serif] font-semibold not-italic text-[24px] leading-[28.8px] text-center align-middle mb-1">Afternoon Tea</h3>
+          <span class="text-[#F3274C] font-bold text-base mb-2">08 Dishes in the Menu</span>
+        </div>
+
+        <div class="swiper-slide flex flex-col items-center">
+          <div class="category-img-wrap relative w-[260px] h-[170px] md:w-[320px] md:h-[200px] mb-4">
+            <img src="./img/cat-6.jpeg" alt="Wine & Cocktails">
+          </div>
+          <h3 class="category-title font-['Fredoka',_sans-serif] font-semibold not-italic text-[24px] leading-[28.8px] text-center align-middle mb-1">Wine & Cocktails</h3>
+          <span class="text-[#F3274C] font-bold text-base mb-2">10 Dishes in the Menu</span>
+        </div>
+
+        <div class="swiper-slide flex flex-col items-center">
+          <div class="category-img-wrap relative w-[260px] h-[170px] md:w-[320px] md:h-[200px] mb-4">
+            <img src="./img/cat-7.jpeg" alt="Takeaway & Delivery">
+          </div>
+          <h3 class="category-title font-['Fredoka',_sans-serif] font-semibold not-italic text-[24px] leading-[28.8px] text-center align-middle mb-1">Takeaway & Delivery</h3>
+          <span class="text-[#F3274C] font-bold text-base mb-2">15 Dishes in the Menu</span>
+        </div>
+
+        <div class="swiper-slide flex flex-col items-center">
+          <div class="category-img-wrap relative w-[260px] h-[170px] md:w-[320px] md:h-[200px] mb-4">
+            <img src="./img/cat-8.jpeg" alt="Alfresco Dining">
+          </div>
+          <h3 class="category-title font-['Fredoka',_sans-serif] font-semibold not-italic text-[24px] leading-[28.8px] text-center align-middle mb-1">Alfresco Dining</h3>
+          <span class="text-[#F3274C] font-bold text-base mb-2">06 Dishes in the Menu</span>
+        </div>
+      </div>
+      <div class="swiper-pagination mt-6"></div>
+    </div>
+    </div>
+  </section>
+
+  <!-- How we work Section -->
+  <section class="how-we-work gradient-bg py-12 lg:py-20 text-white section-reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-center lg:text-left text-3xl md:text-4xl text-4xl lg:text-5xl font-bold mb-8">How We Work</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="service-icon relative !w-[152px] !h-[152px] bg-[#FFD40D] rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl text-gray-800">
+                  <img src="./img/menu.svg" alt="menu" width="80" height="80">
+                </span>
+                <span class="w-10 h-10 bg-black font-['Fredoka',_sans-serif] text-[16px] leading-[26.67px] flex items-center justify-center rounded-full font-black absolute top-0 left-0">1</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Browse Menu</h3>
+              <p class="text-sm opacity-90">Choose from our delicious menu</p>
+            </div>
+
+            <div class="text-center">
+              <div class="service-icon relative !w-[152px] !h-[152px] bg-[#FFD40D] rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl text-gray-800">
+                  <img src="./img/dish.svg" alt="dish" width="80" height="80">
+                </span>
+                <span class="w-10 h-10 bg-black font-['Fredoka',_sans-serif] text-[16px] leading-[26.67px] flex items-center justify-center rounded-full font-black absolute top-0 left-0">2</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Choose & Order</h3>
+              <p class="text-sm opacity-90">Select items and place order</p>
+            </div>
+
+            <div class="text-center">
+              <div class="service-icon relative !w-[152px] !h-[152px] bg-[#FFD40D] rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl text-gray-800">
+                  <img src="./img/place_order.svg" alt="delivery" width="80" height="80">
+                </span>
+                <span class="w-10 h-10 bg-black font-['Fredoka',_sans-serif] text-[16px] leading-[26.67px] flex items-center justify-center rounded-full font-black absolute top-0 left-0">3</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Enjoy Food</h3>
+              <p class="text-sm opacity-90">Fast delivery to your door</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="how-we-work-image relative w-[415px] h-[415px] mx-auto hidden lg:block">
+          <img src="./img/how_work_main.png" class="rounded-full" alt="Restaurant Team">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fast food Menu Section -->
+  <section class="foods_menu py-20 bg-gray-50 section-reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-['Fredoka',_sans-serif] font-bold text-3xl md:text-4xl lg:text-[60px] leading-[34px] md:leading-[48px] lg:leading-[72px] text-center align-middle mb-2">Fast Food Menus</h2>
+        <div class="mx-auto w-24 h-1 bg-yellow-400 rounded"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+        <div class="relative bg-white flex items-start">
+          <div class="food_menu_img">
+            <div class="absolute w-[160px] h-auto bg-no-repeat top-1/2 -translate-y-1/2 z-[9]">
+              <img src="./img/menu_pizza.svg" class="rounded-full object-cover" alt="Shroom Bacon Burger" width="200" height="180">
+            </div>
+          </div>
+          <div class="rounded-2xl shadow-lg px-6 pt-12 pb-6 w-[80%] h-[200px] pl-[20%] ml-auto">
+            <h3 class="font-bold text-lg text-black mt-4 mb-2">Shroom Bacon Burger</h3>
+            <span class="text-[#F3274C] font-bold text-xl mb-4">$11.76</span>
+            <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-2 absolute bottom-2.5 right-2.5">
+              <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+            </button>
+          </div>
+        </div>
+        <div class="relative bg-white flex items-start">
+          <div class="food_menu_img">
+            <div class="absolute w-[160px] h-auto bg-no-repeat top-1/2 -translate-y-1/2 z-[9]">
+              <img src="./img/menu_coffee.svg" class="rounded-full object-cover" alt="Delicious Black Coffee" width="200" height="180">
+            </div>
+          </div>
+          <div class="rounded-2xl shadow-lg px-6 pt-12 pb-6 w-[80%] h-[200px] pl-[20%] ml-auto">
+            <h3 class="font-bold text-lg text-black mt-4 mb-2">Delicious Black Coffee</h3>
+            <span class="text-[#F3274C] font-bold text-xl mb-4">$11.76</span>
+            <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-2 absolute bottom-2.5 right-2.5">
+              <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+            </button>
+          </div>
+        </div>
+        <div class="relative bg-white flex items-start">
+          <div class="food_menu_img">
+            <div class="absolute w-[160px] h-auto bg-no-repeat top-1/2 -translate-y-1/2 z-[9]">
+              <img src="./img/menu_burger.svg" class="rounded-full object-cover" alt="BBQ Chicken Pizza New" width="200" height="180">
+            </div>
+          </div>
+          <div class="rounded-2xl shadow-lg px-6 pt-12 pb-6 w-[80%] h-[200px] pl-[20%] ml-auto">
+            <h3 class="font-bold text-lg text-black mt-4 mb-2">BBQ Chicken Pizza New</h3>
+            <span class="text-[#F3274C] font-bold text-xl mb-4">$13.17</span>
+            <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-2 absolute bottom-2.5 right-2.5">
+              <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+            </button>
+          </div>
+        </div>
+        <div class="relative bg-white flex items-start">
+          <div class="food_menu_img">
+            <div class="absolute w-[160px] h-auto bg-no-repeat top-1/2 -translate-y-1/2 z-[9]">
+              <img src="./img/menu_chicken.svg" class="rounded-full object-cover" alt="Crispy Fried Chicken" width="200" height="180">
+            </div>
+          </div>
+          <div class="rounded-2xl shadow-lg px-6 pt-12 pb-6 w-[80%] h-[200px] pl-[20%] ml-auto">
+            <h3 class="font-bold text-lg text-black mt-4 mb-2">Crispy Fried Chicken</h3>
+            <span class="text-[#F3274C] font-bold text-xl mb-4">$15.10</span>
+            <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-2 absolute bottom-2.5 right-2.5">
+              <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+            </button>
+          </div>
+        </div>
+        <div class="relative bg-white flex items-start">
+          <div class="food_menu_img">
+            <div class="absolute w-[160px] h-auto bg-no-repeat top-1/2 -translate-y-1/2 z-[9]">
+              <img src="./img/menu_coffee-1.svg" class="rounded-full object-cover" alt="Zinger Double Burger" width="200" height="180">
+            </div>
+          </div>
+          <div class="rounded-2xl shadow-lg px-6 pt-12 pb-6 w-[80%] h-[200px] pl-[20%] ml-auto">
+            <h3 class="font-bold text-lg text-black mt-4 mb-2">Zinger Double Burger</h3>
+            <span class="text-[#F3274C] font-bold text-xl mb-4">$20.10</span>
+            <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-2 absolute bottom-2.5 right-2.5">
+              <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+            </button>
+          </div>
+        </div>
+        <div class="relative bg-white flex items-start">
+          <div class="food_menu_img">
+            <div class="absolute w-[160px] h-auto bg-no-repeat top-1/2 -translate-y-1/2 z-[9]">
+              <img src="./img/menu_pizza.svg" class="rounded-full object-cover" alt="Margherita Pizza New" width="200" height="180">
+            </div>
+          </div>
+          <div class="rounded-2xl shadow-lg px-6 pt-12 pb-6 w-[80%] h-[200px] pl-[20%] ml-auto">
+            <h3 class="font-bold text-lg text-black mt-4 mb-2">Margherita Pizza New</h3>
+            <span class="text-[#F3274C] font-bold text-xl mb-4">$15.80</span>
+            <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-2 absolute bottom-2.5 right-2.5">
+              <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+            </button>
+          </div>
+        </div>
+        <div class="relative bg-white flex items-start">
+          <div class="food_menu_img">
+            <div class="absolute w-[160px] h-auto bg-no-repeat top-1/2 -translate-y-1/2 z-[9]">
+              <img src="./img/menu_chicken.svg" class="rounded-full object-cover" alt="Crispy Fried Chicken" width="200" height="180">
+            </div>
+          </div>
+          <div class="rounded-2xl shadow-lg px-6 pt-12 pb-6 w-[80%] h-[200px] pl-[20%] ml-auto">
+            <h3 class="font-bold text-lg text-black mt-4 mb-2">Crispy Fried Chicken</h3>
+            <span class="text-[#F3274C] font-bold text-xl mb-4">$10.85</span>
+            <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-2 absolute bottom-2.5 right-2.5">
+              <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+            </button>
+          </div>
+        </div>
+        <div class="relative bg-white flex items-start">
+          <div class="food_menu_img">
+            <div class="rounded-full absolute w-[160px] h-auto bg-no-repeat top-1/2 -translate-y-1/2 z-[9]">
+              <img src="./img/menu_foods.svg" class="rounded-full object-cover" alt="Black Pepper Burger" width="200" height="180">
+            </div>
+          </div>
+          <div class="rounded-2xl shadow-lg px-6 pt-12 pb-6 w-[80%] h-[200px] pl-[20%] ml-auto">
+            <h3 class="font-bold text-lg text-black mt-4 mb-2">Black Pepper Burger</h3>
+            <span class="text-[#F3274C] font-bold text-xl mb-4">$10.85</span>
+            <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-2 absolute bottom-2.5 right-2.5">
+              <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+            </button>
+          </div>
+        </div>
+        <div class="open-time relative bg-[#FED30D] relative rounded-[20px] shadow-lg p-[20px] flex flex-col justify-between">
+          <div>
+            <h3 class="font-['Fredoka',_sans-serif] font-normal text-[28px] leading-[46px] text-center align-middle relative">OPENING TIMES</h3>
+            <div class="text-black font-semibold mb-2 font-['Fredoka',_sans-serif] font-semibold text-[16px] leading-[26px] align-middle">Mon <span class="float-right">17:00 to 23:00</span></div>
+            <div class="text-black font-semibold mb-6 font-['Fredoka',_sans-serif] font-semibold text-[16px] leading-[26px] align-middle">Tue <span class="float-right">17:00 to 23:00</span></div>
+          </div>
+          <div class="bg-[#F3274C] rounded-[30px] px-4 py-3 text-center mt-4 font-['Fredoka',_sans-serif] absolute -bottom-[64px] lg:-bottom-[40px] left-[10px] w-[calc(100%-20px)]">
+            <span class="font-normal text-white text-[28px] leading-[46.66px] text-center align-middle m-0 block">+1 234 567 891</span>
+            <span class="text-white text-base">Avenue New Town 124 United State</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="best_services py-20 bg-gray-50 section-reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        <div class="relative z-10">
+          <span class="text-[#F3274C] font-bold tracking-wide uppercase text-sm mb-4 block">Food Services</span>
+          <h2 class="text-3xl md:text-4xl lg:text-[60px] leading-[34px] md:leading-[48px] lg:leading-[72px] font-extrabold text-black mb-10 leading-tight">We Provide Best<br class="hidden lg:block">Services</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="flex flex-col items-start text-left">
+              <div class="service-icon relative !w-[152px] !h-[152px] bg-[#FFD40D] rounded-full flex items-center justify-center mb-4">
+                <img src="./img/AfternoonTea.svg" alt="Afternoon Tea" class="text-black" width="95" height="65">
+              </div>
+              <h3 class="font-bold text-[26px] text-black mb-2">Afternoon Tea</h3>
+              <p class="text-gray-600 text-base">Nisl quam vestibulum ac quam nec au gula Orci variusNisl quam nesti.</p>
+            </div>
+            <div class="flex flex-col items-start text-left">
+              <div class="service-icon relative !w-[152px] !h-[152px] bg-[#FFD40D] rounded-full flex items-center justify-center mb-4">
+                <img src="./img/WineCocktails.svg" alt="Wine & Cocktails" class="text-black" width="95" height="95">
+              </div>
+              <h3 class="font-bold text-[26px] text-black mb-2">Wine & Cocktails</h3>
+              <p class="text-gray-600 text-base">Nisl quam vestibulum ac quam nec au gula Orci variusNisl quam nesti.</p>
+            </div>
+            <div class="flex flex-col items-start text-left">
+              <div class="service-icon relative !w-[152px] !h-[152px] bg-[#FFD40D] rounded-full flex items-center justify-center mb-4">
+                <img src="./img/TakeawayDelivery.svg" alt="Takeaway & Delivery" class="text-black" width="95" height="65">
+              </div>
+              <h3 class="font-bold text-[26px] text-black mb-2">Takeaway & Delivery</h3>
+              <p class="text-gray-600 text-base">Nisl quam vestibulum ac quam nec au gula Orci variusNisl quam nesti.</p>
+            </div>
+            <div class="flex flex-col items-start text-left">
+              <div class="service-icon relative !w-[152px] !h-[152px] bg-[#FFD40D] rounded-full flex items-center justify-center mb-4">
+                <img src="./img/AlfrescoDining.svg" alt="Alfresco Dining" class="text-black" width="95" height="85">
+              </div>
+              <h3 class="font-bold text-[26px] text-black mb-2">Alfresco Dining</h3>
+              <p class="text-gray-600 text-base">Nisl quam vestibulum ac quam nec au gula Orci variusNisl quam nesti.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column: Food Image -->
+        <div class="flex justify-center items-center absolute top-0 left-1/2 lg:left-0 -translate-x-1/2 w-full blur-sm z-0 opacity-40 lg:static lg:transform-none lg:blur-0 lg:opacity-100 lg:relative">
+          <div class="relative">
+            <img src="./img/bestServices.png" class="object-cover" alt="Food Bowl">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages Section -->
+  <section class="experiences py-20 bg-white section-reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-[#F3274C] font-bold tracking-wide uppercase text-sm mb-4 block">Packages</span>
+        <h2 class="text-3xl md:text-4xl lg:text-[60px] leading-[34px] md:leading-[48px] lg:leading-[72px] font-extrabold text-black mb-2">A Collection of Unique<br class="hidden lg:block">Experiences</h2>
+      </div>
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-12">
+        <div class="flex flex-row-reverse items-center text-center lg:w-1/2">
+          <div class="relative">
+            <img src="./img/ValentineDay.png" class="object-cover relative z-10" width="360" height="460" alt="Valentine's Day">
+          </div>
+          <div class="experience_text relative w-1/2 lg:w-[40%] m-0 lg:-mr-[3%]">
+            <h3 class="font-bold text-3xl text-black mb-2 text-left lg:text-center align-middle">Valentine's Day Private Table</h3>
+            <ul class="text-black text-sm text-left list-disc list-none">
+              <li>Candle Light Dinner</li>
+              <li>Red Wine</li>
+              <li>Romantic Music</li>
+              <li>Quality Food</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex lg:flex-row-reverse justify-between items-center text-center lg:w-1/2">
+          <div class="relative">
+            <img src="./img/BirthdayParty.png" class="object-cover relative z-10" width="360" height="460" alt="Birthday Party">
+          </div>
+          <div class="experience_text relative w-1/2 lg:w-[40%] m-0 lg:-mr-[3%]">
+            <h3 class="font-bold text-3xl text-black mb-2 text-left lg:text-center align-middle">Birthday Party Event Special</h3>
+            <ul class="text-black text-sm text-left list-disc list-none">
+              <li>Balloons for decoration</li>
+              <li>Cake and Pastries</li>
+              <li>Soft Drink</li>
+              <li>Dinner and Chocolates</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complimentary Section -->
+  <section class="for_you py-20 bg-gray-50 section-reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl lg:text-[60px] leading-[34px] md:leading-[48px] lg:leading-[72px] font-extrabold text-black mb-2">A Complimentary Cocktail, Coffee,<br class="hidden lg:block">Ice-Tea For You.</h2>
+        <p class="text-black text-base leading-[26px] font-['Epilogue', sans-serif]">Enjoy a Cosmopolitan or a non alcoholic espresso martini.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-6 mt-[100px]">
+        <div class="relative bg-white rounded-2xl shadow-lg px-6 pt-[80px] pb-6 mt-[80px] lg:mt-0 flex flex-col items-center">
+          <div class="for_you_img">
+            <div class="absolute top-[-102px] left-1/2 -translate-x-1/2 w-[214px] z-[9]">
+              <img src="./img/menu_chicken.svg" class="rounded-full object-cover" alt="Crispy Fried Chicken" width="214" height="180">
+            </div>
+          </div>
+          <div class="mt-4 text-left">
+            <span class="block text-black mb-1 font-normal text-base leading-[26px] tracking-normal align-middle">100 grams</span>
+            <h3 class="font-semibold text-[24px] leading-[28.8px] align-middle mb-2 w-[80%]">Crispy Fried Chicken</h3>
+            <span class="font-semibold text-[20px] leading-[33.33px] align-middle line-through text-[#555] mr-2">$14.85</span>
+            <span class="text-[#F3274C] font-semibold text-[30px] leading-[50px] tracking-normal align-middle">$10.85</span>
+          </div>
+          <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-4 mt-4">
+            <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+          </button>
+        </div>
+        <div class="relative bg-white rounded-2xl shadow-lg px-6 pt-[80px] pb-6 mt-[80px] lg:mt-0 flex flex-col items-center">
+          <div class="for_you_img">
+            <div class="absolute top-[-102px] left-1/2 -translate-x-1/2 w-[214px] z-[9]">
+              <img src="./img/menu_burger.svg" class="rounded-full object-cover" alt="BBQ Chicken Pizza New" width="214" height="180">
+            </div>
+          </div>
+          <div class="mt-4 text-left">
+            <span class="block text-black mb-1 font-normal text-base leading-[26px] tracking-normal align-middle">100 grams</span>
+            <h3 class="font-semibold text-[24px] leading-[28.8px] align-middle mb-2 w-[80%]">BBQ Chicken Pizza New</h3>
+            <span class="text-[#F3274C] font-semibold text-[30px] leading-[50px] tracking-normal align-middle">$13.17</span>
+          </div>
+          <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-4 mt-4">
+            <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+          </button>
+        </div>
+        <div class="relative bg-white rounded-2xl shadow-lg px-6 pt-[80px] pb-6 mt-[80px] lg:mt-0 flex flex-col items-center">
+          <div class="for_you_img">
+            <div class="absolute top-[-102px] left-1/2 -translate-x-1/2 w-[214px] z-[9]">
+              <img src="./img/menu_coffee.svg" class="rounded-full object-cover" alt="Delicious Black Coffee" width="214" height="180">
+            </div>
+          </div>
+          <div class="mt-4 text-left">
+            <span class="block text-black mb-1 font-normal text-base leading-[26px] tracking-normal align-middle">100 grams</span>
+            <h3 class="font-semibold text-[24px] leading-[28.8px] align-middle mb-2 w-[80%]">Delicious Black Coffee</h3>
+            <span class="font-semibold text-[20px] leading-[33.33px] align-middle line-through text-[#555] mr-2">$21.76</span>
+            <span class="text-[#F3274C] font-semibold text-[30px] leading-[50px] tracking-normal align-middle">$11.76</span>
+          </div>
+          <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-4 mt-4">
+            <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+          </button>
+        </div>
+        <div class="relative bg-white rounded-2xl shadow-lg px-6 pt-[80px] pb-6 mt-[80px] lg:mt-0 flex flex-col items-center">
+          <div class="for_you_img">
+            <div class="absolute top-[-102px] left-1/2 -translate-x-1/2 w-[214px] z-[9]">
+              <img src="./img/menu_pizza.svg" class="rounded-full object-cover" alt="Margherita Pizza New" width="214" height="180">
+            </div>
+          </div>
+          <div class="mt-4 text-left">
+            <span class="block text-black mb-1 font-normal text-base leading-[26px] tracking-normal align-middle">100 grams</span>
+            <h3 class="font-semibold text-[24px] leading-[28.8px] align-middle mb-2 w-[80%]">Margherita Pizza New</h3>
+            <span class="text-[#F3274C] font-semibold text-[30px] leading-[50px] tracking-normal align-middle mb-4">$15.80</span>
+          </div>
+          <button class="ml-auto mt-auto bg-yellow-400 rounded-lg p-4 mt-4">
+            <img src="./img/menu_lock.svg" alt="menu lock" width="16" height="18">
+          </button>
+        </div>
+      </div>
+      <div class="text-center mt-4 text-[20px]">
+        <span class="font-semibold">Booking Calling 24/7 :</span>
+        <a href="tel:+1234567890" class="text-[#F3274C] font-bold ml-2">+12 345 67890</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weekly Special Section -->
+  <section class="py-20 bg-white section-reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-left mb-10">
+        <span class="text-[#F3274C] font-bold tracking-wide uppercase text-lg mb-2 block">Weekly Special</span>
+        <h2 class="text-3xl md:text-4xl lg:text-[60px] leading-[34px] md:leading-[48px] lg:leading-[72px] font-extrabold text-black mb-2">Best Seller Deals</h2>
+      </div>
+      <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div class="flex flex-col lg:flex-row items-center gap-8">
+          <div class="bg-[#F3274C] rounded-[30px] py-[30px] px-[25px] w-full">
+            <ul class="space-y-4">
+              <li class="flex items-center py-[22px] pl-[58px] bg-white rounded-[35px]">
+                <span class="w-[18px] h-[18px] rounded-full bg-white border-[6px] border-[#C2C2C2] mr-3"></span>
+                <span class="font-semibold text-lg leading-7 align-middle">Fish Vegetables</span>
+              </li>
+              <li class="flex items-center bg-[#FFD40D] rounded-lg py-[22px] pl-[58px] !rounded-[35px] !mt-1">
+                <span class="w-[18px] h-[18px] rounded-full border-[6px] border-[#F3274C] mr-3"></span>
+                <span class="font-semibold text-lg leading-7 align-middle">Buffet Vegas</span>
+              </li>
+              <li class="flex items-center py-[22px] pl-[58px] bg-white rounded-[35px] !mt-1">
+                <span class="w-[18px] h-[18px] rounded-full bg-white border-[6px] border-[#C2C2C2] mr-3"></span>
+                <span class="font-semibold text-lg leading-7 align-middle">Fish Fry Grilled</span>
+              </li>
+              <li class="flex items-center py-[22px] pl-[58px] bg-white rounded-[35px] !mt-1">
+                <span class="w-[18px] h-[18px] rounded-full bg-white border-[6px] border-[#C2C2C2] mr-3"></span>
+                <span class="font-semibold text-lg leading-7 align-middle">Tasty Snacks</span>
+              </li>
+              <li class="flex items-center py-[22px] pl-[58px] bg-white rounded-[35px] !mt-1">
+                <span class="w-[18px] h-[18px] rounded-full bg-white border-[6px] border-[#C2C2C2] mr-3"></span>
+                <span class="font-semibold text-lg leading-7 align-middle">Smoked Chicke</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <img src="./img/menu_burger.svg" class="absolute w-[30%] h-[80%] left-[30%] object-cover hidden lg:block" alt="Buffet Vegas Burger">
+        <div class="bg-white h-full border-[5px] border-[#FFD40D] rounded-[30px] p-8 pl-[20%] flex flex-col justify-center">
+          <h3 class="font-semibold text-[30px] leading-[50px] align-middle mb-4">Buffet Vegas</h3>
+          <ul class="grid grid-cols-2 gap-2 mb-4 text-sm text-gray-700">
+            <li class="flex items-center font-medium text-[16px] leading-[26px] align-middle"><span class="text-[#ADDB31] mr-2">✔</span>Fresh & Tasty</li>
+            <li class="flex items-center font-medium text-[16px] leading-[26px] align-middle"><span class="text-[#ADDB31] mr-2">✔</span>Best in organic foods</li>
+            <li class="flex items-center font-medium text-[16px] leading-[26px] align-middle"><span class="text-[#ADDB31] mr-2">✔</span>100 Fresh Ingredients</li>
+            <li class="flex items-center font-medium text-[16px] leading-[26px] align-middle"><span class="text-[#ADDB31] mr-2">✔</span>Better for your Health</li>
+          </ul>
+          <div class="flex items-center font-semibold text-[40px] leading-[66px] align-middle mb-4">
+            <span class="mr-3"><span class="text-[#F3274C]">$</span>10.85</span>
+            <span class="text-[#555] line-through text-lg">$14.85</span>
+          </div>
+          <button class="btn-primary text-white rounded-full font-medium text-lg first-button">Product</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Follow BravisThemes Section -->
+  <section class="py-20 bg-white section-reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <span class="bg-[#F3274C] p-[25px] text-white inline-block rounded-full mb-4">
+          <i class="fa-brands fa-instagram text-[50px] w-[50px] h-[50px]"></i>
+        </span>
+        <h2 class="text-3xl md:text-4xl lg:text-[60px] leading-[34px] md:leading-[48px] lg:leading-[72px] font-extrabold text-black mb-2">Follow BravisThemes</h2>
+        <p class="text-black text-base leading-[26px] font-['Epilogue', sans-serif]">Join our community to inspire your desires</p>
+      </div>
+
+      <div class="swiper mySwiper1 pb-12">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide flex flex-col items-center">
+            <div class="w-[320px] h-[320px] md:w-[320px] md:h-[320px] mb-4">
+              <img src="./img/FollowBravis1.png" alt="Organic Food" width="320" height="320">
+            </div>
+          </div>
+          <div class="swiper-slide flex flex-col items-center">
+            <div class="w-[320px] h-[320px] md:w-[320px] md:h-[320px] mb-4">
+              <img src="./img/FollowBravis2.png" alt="Zinger Burgers" width="320" height="320">
+            </div>
+          </div>
+          <div class="swiper-slide flex flex-col items-center">
+            <div class="w-[320px] h-[320px] md:w-[320px] md:h-[320px] mb-4">
+              <img src="./img/FollowBravis3.png" alt="Grill Food" width="320" height="320">
+            </div>
+          </div>
+          <div class="swiper-slide flex flex-col items-center">
+            <div class="w-[320px] h-[320px] md:w-[320px] md:h-[320px] mb-4">
+              <img src="./img/FollowBravis4.png" alt="Bar B Q" width="320" height="320">
+            </div>
+          </div>
+          <div class="swiper-slide flex flex-col items-center">
+            <div class="w-[320px] h-[320px] md:w-[320px] md:h-[320px] mb-4">
+              <img src="./img/FollowBravis1.png" alt="Afternoon Tea" width="320" height="320">
+            </div>
+          </div>
+          <div class="swiper-slide flex flex-col items-center">
+            <div class="w-[320px] h-[320px] md:w-[320px] md:h-[320px] mb-4">
+              <img src="./img/FollowBravis2.png" alt="Afternoon Tea" width="320" height="320">
+            </div>
+          </div>
+          <div class="swiper-slide flex flex-col items-center">
+            <div class="w-[320px] h-[320px] md:w-[320px] md:h-[320px] mb-4">
+              <img src="./img/FollowBravis3.png" alt="Afternoon Tea" width="320" height="320">
+            </div>
+          </div>
+          <div class="swiper-slide flex flex-col items-center">
+            <div class="w-[320px] h-[320px] md:w-[320px] md:h-[320px] mb-4">
+              <img src="./img/FollowBravis4.png" alt="Afternoon Tea" width="320" height="320">
+            </div>
+          </div>
+        </div>
+        <!-- <div class="swiper-pagination mt-6"></div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-50 pt-16 pb-8 relative">
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+        <div class="bg-[#F3274C] rounded-3xl p-8 text-white flex flex-col justify-center items-start mb-8 md:mb-0">
+          <div class="mb-6">
+            <img src="https://svgshare.com/i/14uA.svg" alt="TasteNest Logo" class="h-10 mb-4">
+          </div>
+          <div class="mb-4 font-bold">
+            Tuesday – Saturday: 12:00pm – 23:00pm
+          </div>
+          <div class="mb-4 font-bold underline">
+            Closed on Sunday
+          </div>
+          <div class="font-semibold mt-4">
+            5 star rated on TripAdvisor
+          </div>
+        </div>
+        <div>
+          <h3 class="font-bold text-xl mb-2 flex items-center">About
+            <span class="ml-2 w-16 h-1 bg-yellow-400 rounded"></span>
+          </h3>
+          <ul class="space-y-2 mt-4 text-gray-800">
+            <li><span class="mr-2 text-gray-500">&gt;</span>Fredoka One</li>
+            <li><span class="mr-2 text-gray-500">&gt;</span>Special Dish</li>
+            <li><span class="mr-2 text-gray-500">&gt;</span>Reservation</li>
+            <li><span class="mr-2 text-gray-500">&gt;</span>Contact</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-xl mb-2 flex items-center">Menu
+            <span class="ml-2 w-16 h-1 bg-yellow-400 rounded"></span>
+          </h3>
+          <ul class="space-y-2 mt-4 text-gray-800">
+            <li><span class="mr-2 text-gray-500">&gt;</span>Steaks</li>
+            <li><span class="mr-2 text-gray-500">&gt;</span>Burgers</li>
+            <li><span class="mr-2 text-gray-500">&gt;</span>Cocktails</li>
+            <li><span class="mr-2 text-gray-500">&gt;</span>Bar B Q</li>
+            <li><span class="mr-2 text-gray-500">&gt;</span>Desserts</li>
+          </ul>
+        </div>
+        <!-- Newsletter -->
+        <div>
+          <h3 class="font-bold text-xl mb-2 flex items-center">Newsletter
+            <span class="ml-2 w-16 h-1 bg-yellow-400 rounded"></span>
+          </h3>
+          <p class="text-gray-800 mt-4 mb-3">Get recent news and updates.</p>
+          <form class="flex flex-col space-y-3">
+            <input type="email" placeholder="Email Address" class="rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+            <button type="submit" class="btn-primary text-white rounded-full font-medium text-lg first-button transition-all">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <!-- Bottom Bar -->
+      <div class="mt-12 border-t-4 border-yellow-400 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <div class="text-sm text-gray-800 mb-4 md:mb-0">
+          <span class="font-bold text-[#F3274C]">© 2025 TasteNest</span> | All <span class="font-bold">shawonet3 Themes</span>
+        </div>
+        <div class="flex space-x-8 text-sm font-bold">
+          <a href="#" class="hover:underline">Facebook</a>
+          <a href="#" class="hover:underline">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="hidden md:block absolute inset-0 pointer-events-none z-0">
+      <img src="./img/footer-left.svg" class="absolute left-0 bottom-0 w-48" alt="Decorative Left">
+      <img src="./img/footer-right.svg" class="absolute right-0 bottom-0 w-48" alt="Decorative Right">
+    </div>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+  <!-- Additional CSS for ripple effect -->
+  <link rel="stylesheet" href="animation.css">
+
+  <script>
+    
+  </script>
+</body>
+
+</html>
